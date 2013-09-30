@@ -65,7 +65,7 @@ return array(
 	),
 
     "emailViewPath" => "emails.auth",
-    "emailActivation" => false,
+    "emailActivation" => true,
     "roleTable" => "roles",
     "profileTable" => "profiles",
 );
