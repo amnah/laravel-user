@@ -1,0 +1,13 @@
+{
+    "name": "amnah/laravel-user",
+    "description": "Laravel - Fast and simple user authentication",
+    "keywords": ["larvel","user","auth","authentication"],
+    "homepage": "https://github.com/amnah/laravel-user",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "amnah",
+            "email": "amnah.dev@gmail.com"
+        }
+    ]
+}
