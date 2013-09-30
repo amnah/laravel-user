@@ -1,22 +1,25 @@
 laravel-user
 ============
 
-Fast and easy user authentication
+Fast and easy user authentication. Get up and running so you can focus on your business logic. 
 
-Get up and running so you can focus on your business logic
+This is not exactly a normal package - you don't really need to install it via composer and then add a service provider. 
+
+Instead, you can just download the zip and extract the files directly into your newly-installed laravel app.
 
 ## Features
 
 * Quick setup
 * Works out of the box
-* No library to learn - just a controller, models, and views
+* Lightweight - No library to learn. Just a controller, models, and views
+* Intended for you to dig in directly and modify the code to fit your needs
 * Built-in pages
     * Registration 
     * Email activation
     * Login
     * Account page (2 versions)
     * Forgot/reset password
-
+* Error messages on each field
 
 ## Installation
 
