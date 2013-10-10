@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6
+-- version 4.0.8
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2013 at 06:15 PM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Generation Time: Oct 10, 2013 at 04:38 AM
+-- Server version: 5.6.11
+-- PHP Version: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `luser`
+-- Database: `l4d`
 --
 
 -- --------------------------------------------------------
@@ -96,6 +96,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ban_reason` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   UNIQUE KEY `users_username_unique` (`username`),

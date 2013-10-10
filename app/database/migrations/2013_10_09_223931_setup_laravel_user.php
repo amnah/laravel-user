@@ -43,6 +43,7 @@ class SetupLaravelUser extends Migration {
             $table->timestamp('banned_at')->nullable()->default(null);
             $table->string('ban_reason')->nullable()->default(null);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create($profileTable, function(Blueprint $table) use ($userTable) {

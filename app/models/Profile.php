@@ -59,7 +59,7 @@ class Profile extends Eloquent {
      * @var array $data
      * @return bool
      */
-    public function fillValidateRegistration($data) {
+    public function fillValidateRegister($data) {
         $rules = array(
             'first_name'  => 'alpha_num',
             'last_name'   => 'alpha_num',
@@ -73,6 +73,32 @@ class Profile extends Eloquent {
      * @return bool
      */
     public function fillValidateAccount($data) {
+        $rules = array(
+            'first_name'  => 'alpha_num',
+            'last_name'   => 'alpha_num',
+        );
+        return $this->fillValidate($rules, $data);
+    }
+
+    /**
+     * Validate admin creation
+     * @var array $data
+     * @return bool
+     */
+    public function fillValidateAdminCreate($data) {
+        $rules = array(
+            'first_name'  => 'alpha_num',
+            'last_name'   => 'alpha_num',
+        );
+        return $this->fillValidate($rules, $data);
+    }
+
+    /**
+     * Validate admin creation
+     * @var array $data
+     * @return bool
+     */
+    public function fillValidateAdminEdit($data) {
         $rules = array(
             'first_name'  => 'alpha_num',
             'last_name'   => 'alpha_num',

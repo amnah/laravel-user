@@ -21,8 +21,8 @@ class UserController extends BaseController {
         if ($_POST) {
             // check for valid data
             // typecast to prevent error (if there are no profile fields)
-            $userValidate = $user->fillValidateRegistration(Input::get("User"));
-            $profileValidate = $profile->fillValidateRegistration((array)Input::get("Profile"));
+            $userValidate = $user->fillValidateRegister(Input::get("User"));
+            $profileValidate = $profile->fillValidateRegister((array)Input::get("Profile"));
             if ($userValidate and $profileValidate) {
                 // register account
                 $this->_register($user, $profile);
@@ -77,7 +77,7 @@ class UserController extends BaseController {
      */
     public function getLogout() {
         Auth::logout();
-        return Redirect::to("/");
+        return Redirect::to("user");
     }
 
     /**
@@ -139,7 +139,7 @@ class UserController extends BaseController {
             if (!$errorLogin and !$errorBanReason and !$errorActivation) {
                 $returnUrl = Session::get("returnUrl");
                 Session::forget("returnUrl");
-                return Redirect::to($returnUrl ? $returnUrl : "/");
+                return Redirect::to($returnUrl ? $returnUrl : "user");
             }
         }
 

@@ -28,6 +28,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     protected $hidden = array("password","token");
 
+    public $softDelete = true;
+
     /**
      * Constructor
      */
@@ -105,7 +107,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      * @var array $data
      * @return bool
      */
-    public function fillValidateRegistration($data) {
+    public function fillValidateRegister($data) {
         $table = $this->getTable();
         $rules = array(
             "email"       => "required|email|unique:{$table}",
@@ -146,6 +148,44 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     }
 
     /**
+     * Fill and validate for admin creation
+     * @var array $data
+     * @return bool
+     */
+    public function fillValidateAdminCreate($data) {
+        $table = $this->getTable();
+        $rules = array(
+            "email"       => "required|email|unique:{$table}",
+            "username"    => "required|alpha_num|unique:{$table}",
+            "password"    => "required|min:3",
+            "role_id"    => "required|numeric",
+            "status"    => "required|numeric",
+            "banned_at"    => "date",
+            "ban_reason"    => "",
+        );
+        return $this->fillValidate($rules, $data);
+    }
+
+    /**
+     * Fill and validate for admin edit
+     * @var array $data
+     * @return bool
+     */
+    public function fillValidateAdminEdit($data) {
+        $table = $this->getTable();
+        $rules = array(
+            "email"       => "required|email|unique:{$table},email,{$this->id}",
+            "username"    => "required|alpha_num|unique:{$table},username,{$this->id}",
+            "password"    => "min:3",
+            "role_id"    => "required|numeric",
+            "status"    => "required|numeric",
+            "banned_at"    => "date",
+            "ban_reason"    => "",
+        );
+        return $this->fillValidate($rules, $data);
+    }
+
+    /**
      * Modified save
      * @var array $options
      * @return bool
@@ -164,6 +204,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         // hash new password
         elseif ($this->isDirty("password")) {
             $this->password = Hash::make($this->password);
+        }
+
+        // set null fields
+        $nullFields = array("banned_at","ban_reason");
+        foreach ($nullFields as $nullField) {
+            if (isset($this->attributes[$nullField]) and !$this->attributes[$nullField]) {
+                $this->attributes[$nullField] = null;
+            }
         }
 
         // unset temp fields
