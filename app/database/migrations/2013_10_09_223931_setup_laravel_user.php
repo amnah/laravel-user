@@ -27,7 +27,7 @@ class SetupLaravelUser extends Migration {
         Schema::create($roleTable, function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->boolean('can_admin');
+            $table->boolean('admin');
             $table->timestamps();
         });
 

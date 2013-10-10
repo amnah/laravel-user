@@ -15,7 +15,7 @@ class AdminController extends BaseController {
             Session::set("returnUrl", Request::path());
             return Redirect::to("user/login");
         }
-        elseif (!$user->perm("can_admin")) {
+        elseif (!$user->perm("admin")) {
             throw new Exception("arrrrrr matey no admin permissions");
         }
     }
