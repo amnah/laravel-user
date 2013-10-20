@@ -119,7 +119,7 @@ class AdminController extends BaseController {
     public function postRestore() {
         // check for valid user
         $userId = Input::get("userId");
-        if (!$user = User::find($userId)) {
+        if (!$user = User::withTrashed()->find($userId)) {
             throw new Exception("Invalid user to restore");
         }
 
