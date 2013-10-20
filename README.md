@@ -7,6 +7,10 @@ This is not exactly a normal package - you don't really need to install it via c
 
 Instead, you can just download the zip and extract the files directly into your newly-installed laravel app.
 
+## Demo
+
+[See demo here](http://laraveluser.dev.amnah.net/user)
+
 ## Features
 
 * Quick setup
@@ -40,10 +44,6 @@ Instead, you can just download the zip and extract the files directly into your 
     * ```php artisan migrate``` or *app/database/setup_laravel_user.sql*
 6. Go to your application in your browser and rejoice
     * ```http://localhost/path/to/app/public/user```
-
-## Demo
-
-[See demo here](http://laraveluser.dev.amnah.net/user)
 
 ## User Permissions
 
