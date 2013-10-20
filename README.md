@@ -55,4 +55,6 @@ For example, let's say that you need a permission for creating posts. You would 
 $user->perm("create_post")
 ```
 
-Note: There is currently no CRUD functionality for this. You will need to manually update the database or use basic Laravel query builder statements. Alternatively, you can consider using something more powerful such as [Entrust](https://github.com/zizaco/entrust).
+Note: An example of this can be found in the AdminController::__construct()
+
+Note2: There is currently no CRUD functionality for this. You will need to manually update the database or use basic Laravel query builder statements. Alternatively, you can consider using something more powerful such as [Entrust](https://github.com/zizaco/entrust).
