@@ -1,9 +1,9 @@
-laravel-user
+﻿laravel-user
 ============
 
-Fast and easy user authentication. Get up and running so you can focus on your business logic. 
+Fast and easy user authentication. Get up and running so you can focus on your business logic.
 
-This is not exactly a normal package - you don't really need to install it via composer and then add a service provider. 
+This is not exactly a normal package - you don't really need to install it via composer and then add a service provider.
 
 Instead, you can just download the zip and extract the files directly into your newly-installed laravel app.
 
@@ -11,14 +11,17 @@ Instead, you can just download the zip and extract the files directly into your 
 
 * Quick setup
 * Works out of the box
-* Lightweight - No library to learn. Just a controller, models, and views
+* Lightweight - No library to learn. Just two controllers, models, and views
 * Intended for you to dig in directly and modify the code to fit your needs
 * Built-in pages
-    * Registration 
+    * Registration
     * Email activation
     * Login
     * Account page (2 versions)
     * Forgot/reset password
+    * Admin list user
+    * Admin create user
+    * Admin edit user
 * Error messages on each field
 
 ## Installation
@@ -37,4 +40,19 @@ Instead, you can just download the zip and extract the files directly into your 
     * ```php artisan migrate``` or *app/database/setup_laravel_user.sql*
 6. Go to your application in your browser and rejoice
     * ```http://localhost/path/to/app/public/user```
-    
+
+## Demo
+
+[See demo here](http://laraveluser.dev.amnah.net)
+
+## User Permissions
+
+This package contains a simple permissions system. Users are assigned to a role, and each role has a series of flags for their permissions denoted via columns in Role table. 
+
+For example, let's say that you need a permission for creating posts. You would need to add a column in the Role table, e.g. *create_post*. Then, you can check the user permission using:
+
+```
+$user->perm("create_post")
+```
+
+Note: There is currently no CRUD functionality for this. You will need to manually update the database or use basic Laravel query builder statements. Alternatively, you can consider using something more powerful such as [Entrust](https://github.com/zizaco/entrust).
