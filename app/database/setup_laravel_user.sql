@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 -- Dumping data for table `roles`
 --
 
-INSERT INTO `roles` (`id`, `name`, `can_admin`, `created_at`, `updated_at`) VALUES
+INSERT INTO `roles` (`id`, `name`, `admin`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 'User', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 

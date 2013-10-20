@@ -57,8 +57,8 @@ class SetupLaravelUser extends Migration {
 
         // create initial roles
         DB::table($roleTable)->insert(array(
-            array('name' => 'Admin', 'can_admin' => 1),
-            array('name' => 'User', 'can_admin' => 0),
+            array('name' => 'Admin', 'admin' => 1),
+            array('name' => 'User', 'admin' => 0),
         ));
 	}
 
