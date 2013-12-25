@@ -9,7 +9,7 @@ Instead, you can just download the zip and extract the files directly into your 
 
 ## Demo
 
-[See demo here](http://laraveluser.dev.amnah.net/user)
+[See demo here](http://laravel.amnahdev.com/user)
 
 ## Features
 
